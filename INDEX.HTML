@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Begum It's For You 💖</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body{
+    overflow:hidden;
+    background: linear-gradient(135deg,#ff9a9e,#fad0c4,#ffd1ff);
+}
+
+.slide{
+    width:100vw;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:30px;
+    color:white;
+    position:absolute;
+    transition: transform 1s ease-in-out;
+}
+
+h1{
+    font-size:3em;
+    margin-bottom:20px;
+}
+
+h2{
+    margin-bottom:15px;
+}
+
+p{
+    max-width:600px;
+    font-size:1.2em;
+    line-height:1.6;
+}
+
+button{
+    position:fixed;
+    bottom:30px;
+    right:30px;
+    padding:12px 20px;
+    border:none;
+    border-radius:30px;
+    background:white;
+    color:#ff4f81;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+button:hover{
+    transform:scale(1.1);
+}
+
+img{
+    width:200px;
+    height:200px;
+    object-fit:cover;
+    border-radius:20px;
+    margin:10px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* Background sparkle hearts */
+.heart{
+    position:absolute;
+    font-size:20px;
+    animation:float 6s linear infinite;
+}
+
+@keyframes float{
+    0%{transform:translateY(100vh); opacity:0;}
+    50%{opacity:1;}
+    100%{transform:translateY(-10vh); opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- Slide 1 -->
+<div class="slide" style="background:linear-gradient(135deg,#ff758c,#ff7eb3);" id="slide0">
+    <h1>BEGUM ITS FOR U 💕</h1>
+    <p>Azqa Marium, this little website is made with pure love just for you.</p>
+</div>
+
+<!-- Slide 2 -->
+<div class="slide" style="background:linear-gradient(135deg,#a18cd1,#fbc2eb); transform:translateX(100%);" id="slide1">
+    <h1>For My Begum 💖</h1>
+    <p>
+        Azqa, you are my cutest, most childish, most beautiful blessing.
+        Every time we meet becomes my favorite memory.
+        Your smile gives me peace.
+        Your presence gives me happiness.
+        I am grateful for you every single day.
+    </p>
+</div>
+
+<!-- Slide 3 -->
+<div class="slide" style="background:linear-gradient(135deg,#ff9a9e,#fecfef); transform:translateX(200%);" id="slide2">
+    <h1>Our Anniversary 📅</h1>
+    <h2>20 - January - 2026</h2>
+    <p>The day my life changed beautifully.
+    The day my heart chose you forever.</p>
+</div>
+
+<!-- Slide 4 -->
+<div class="slide" style="background:linear-gradient(135deg,#f6d365,#fda085); transform:translateX(300%);" id="slide3">
+    <h1>Our Special Moments 🌸</h1>
+    <p>
+        Every time we meet.
+        Every laugh we share.
+        Every childish fight.
+        Every soft conversation.
+        Every single moment with you is special to me.
+    </p>
+</div>
+
+<!-- Slide 5 -->
+<div class="slide" style="background:linear-gradient(135deg,#84fab0,#8fd3f4); transform:translateX(400%);" id="slide4">
+    <h1>Our Pictures 🖼️</h1>
+    <p>Add your favorite pictures below 💕</p>
+    <img src="your-photo1.jpg" alt="Our Picture 1">
+    <img src="your-photo2.jpg" alt="Our Picture 2">
+</div>
+
+<!-- Slide 6 -->
+<div class="slide" style="background:linear-gradient(135deg,#c471f5,#fa71cd); transform:translateX(500%);" id="slide5">
+    <h1>INSHALLAH 🤍</h1>
+    <h2>COMPLETE IT WITH NIKKAH</h2>
+    <p>May Allah bless our love and unite us forever. Ameen. 💍</p>
+</div>
+
+<button onclick="nextSlide()">Next ➜</button>
+
+<script>
+let current = 0;
+const slides = document.querySelectorAll('.slide');
+
+function nextSlide(){
+    if(current < slides.length -1){
+        current++;
+        slides.forEach((slide,index)=>{
+            slide.style.transform = `translateX(${(index - current)*100}%)`;
+        });
+    }
+}
+
+// floating hearts
+function createHeart(){
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML="🤍";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.animationDuration=(Math.random()*3+3)+"s";
+    document.body.appendChild(heart);
+    setTimeout(()=>{heart.remove();},6000);
+}
+setInterval(createHeart,600);
+</script>
+
+</body>
+</html>
